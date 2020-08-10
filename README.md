@@ -13,6 +13,8 @@ Operating systems: Amazon-Linux.
 Role Variables
 --------------
 
+default variables:-  
+-----------------  
 maven_major: 3  
 maven_version: 3.6.3  
 maven_installed_path: /opt  
