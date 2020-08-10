@@ -1,0 +1,37 @@
+---
+# tasks file for ansible-maven-role
+- name: check if maven installed or not
+  shell: "mvn --version | grep -w 'Apache Maven' | awk '{print $3}'"
+  register: maven_versioncheck
+
+- name: print output
+  debug:
+    var: maven_versioncheck.stdout
+
+- name: downlode apache maven version {{ maven_version }}
+  unarchive:
+    src: "https://downloads.apache.org/maven/maven-{{ maven_major }}/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
+    dest: "{{ maven_installed_path }}"
+    copy: no
+
+- name: create maven symlink
+  file:
+    src: "{{ maven_installed_path }}/apache-maven-{{ maven_version }}/bin/mvn"
+    dest: /usr/bin/mvn
+    state: link
+
+- name: maven environment variables set
+  lineinfile:
+    dest: "{{ maven_env_file }}"
+    line: "{{ item.line }}"
+  loop:
+    - { line: 'M2_HOME={{maven_installed_path}}/apache-maven-{{maven_version}}' }
+    - { line: 'PATH=$PATH:$M2_HOME/bin' }
+
+- name: Exports/Run maven env file for make M2_HOME available globally
+  shell: "source {{maven_env_file}}"
+  register: output1
+
+- debug:
+    var: output1
+
