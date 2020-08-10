@@ -6,17 +6,17 @@ Install Apache maven.
 Requirements
 ------------
 
-Ansible version: 
-Operating systems: Amazon-Linux.
+Ansible version: 2.9   
+Operating systems: Amazon-Linux.  
                    Redhat7, Redhat8.
 
 Role Variables
 --------------
 
-maven_major: 3
-maven_version: "3.6.3"
-maven_installed_path: /opt
-maven_env_file: "/etc/profile.d/maven.sh"
+maven_major: 3  
+maven_version: 3.6.3  
+maven_installed_path: /opt  
+maven_env_file: "/etc/profile.d/maven.sh"  
 
 Dependencies
 ------------
