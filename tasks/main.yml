@@ -20,6 +20,11 @@
     dest: /usr/bin/mvn
     state: link
 
+- name: create maven env file
+  file:
+    path: /etc/profile.d/maven.sh
+    state: touch
+
 - name: maven environment variables set
   lineinfile:
     dest: "{{ maven_env_file }}"
