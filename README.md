@@ -36,6 +36,18 @@ define role in playbook:-
   roles:  
   - role: ansible_role_linux_install_maven  
 
+pass variables as extravariables at run time:-  
+  
+ansible-playbook maven.yml -i /inventory  
+ansible-playbook maven.yml -i /inventory -e "maven_major=3 maven_version=3.6.3 maven_installed_path= /opt maven_env_file=/etc/profile.d/maven.sh"  
+pass variables in playbook:-  
+  
+---
+- name: install apache maven  
+  hosts: localhost  
+  become: yes  
+  roles:
+  - role: ansible_role_linux_install_maven
 
 License
 -------
@@ -45,4 +57,6 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Auther: Haribabu Challa  
+malid: challaharibabu70@gmail.com  
+
