@@ -47,7 +47,12 @@ pass variables in playbook:-
   hosts: localhost  
   become: yes  
   roles:
-  - role: ansible_role_linux_install_maven
+  - role: ansible_role_linux_install_maveni  
+    maven_major: 3  
+    maven_version: 3.6.3  
+    maven_installed_path: /opt  
+    maven_env_file: /etc/profile.d/maven.sh  
+
 
 License
 -------
