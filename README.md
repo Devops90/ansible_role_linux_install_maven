@@ -39,7 +39,10 @@ define role in playbook:-
 pass variables as extravariables at run time:-  
   
 ansible-playbook maven.yml -i /inventory  
-ansible-playbook maven.yml -i /inventory -e "maven_major=3 maven_version=3.6.3 maven_installed_path= /opt maven_env_file=/etc/profile.d/maven.sh"  
+ansible-playbook maven.yml -i /inventory -e "maven_major=3 maven_version=3.6.3 maven_installed_path= /opt maven_env_file=/etc/profile.d/maven.sh" 
+  
+  
+
 pass variables in playbook:-  
   
 ---
