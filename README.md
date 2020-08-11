@@ -12,9 +12,7 @@ Operating systems: Amazon-Linux.
 
 Role Variables
 --------------
-
-default variables:-  
------------------  
+ 
 maven_major: 3  
 maven_version: 3.6.3  
 maven_installed_path: /opt  
@@ -23,16 +21,21 @@ maven_env_file: "/etc/profile.d/maven.sh"
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Java is mandatory to install maven 
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+create role:- ansible galaxy init anisble_role_linux_install_maven  
+define role in playbook:-  
+  
+---
+- name: install apache maven  
+  hosts: localhost  
+  become: yes  
+  roles:  
+  - role: ansible_role_linux_install_maven  
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
 
 License
 -------
